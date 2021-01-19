@@ -15,13 +15,7 @@ import java.util.Date;
 @Table(name = "APPOINTMENT")
 @Getter @Setter
 @NoArgsConstructor
-public class Appointment {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ID")
-    @JsonView(Views.Public.class)
-    private Long id;
+public class Appointment extends BaseEntity {
 
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "START_VISIT")

@@ -14,13 +14,7 @@ import java.util.Set;
 @Table(name = "DOCTOR")
 @Getter @Setter
 @NoArgsConstructor
-public class Doctor {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ID")
-    @JsonView(Views.Public.class)
-    private Long id;
+public class Doctor extends BaseEntity{
 
     @Column(name = "FIRST_NAME", length = 16, nullable = false)
     @JsonView(Views.Public.class)
