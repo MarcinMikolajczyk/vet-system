@@ -45,4 +45,20 @@ public class Appointment extends BaseEntity {
         this.customer = customer;
     }
 
+    @Override
+    public int hashCode() {
+        return 12;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Appointment other = (Appointment) obj;
+        return id != null && id.equals(other.getId());
+    }
 }

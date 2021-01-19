@@ -27,4 +27,21 @@ public class Doctor extends BaseEntity{
     @OneToMany(mappedBy = "doctor")
     @JsonView(Views.Doctor.class)
     private Set<Appointment> appointments = new HashSet<>();
+
+    @Override
+    public int hashCode() {
+        return 13;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Doctor other = (Doctor) obj;
+        return id != null && id.equals(other.getId());
+    }
 }
