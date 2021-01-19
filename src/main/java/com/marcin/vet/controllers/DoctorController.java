@@ -20,13 +20,10 @@ public class DoctorController {
         this.doctorService = doctorService;
     }
 
-
     @GetMapping("/{id}")
     @JsonView(Views.Doctor.class)
     public List<Appointment> getWithAppointment(@PathVariable Long id,
                                                 @RequestParam("date") @DateTimeFormat(pattern="yyyy-MM-dd") Date date){
         return doctorService.getAllAppointmentsByDay(id, date);
     }
-
-
 }

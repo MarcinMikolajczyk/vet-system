@@ -70,7 +70,7 @@ public class AppointmentService {
     }
 
     private BiPredicate<Appointment, Appointment> checkFreeTerm = (s1, s2) ->
-            (s1.getStart_visit().getTime() <= s2.getEnd_visit().getTime()) && (s2.getStart_visit().getTime() <= s1.getEnd_visit().getTime());
+            (s1.getStart_visit().getTime() < s2.getEnd_visit().getTime()) && (s2.getStart_visit().getTime() < s1.getEnd_visit().getTime());
 
 
 }
