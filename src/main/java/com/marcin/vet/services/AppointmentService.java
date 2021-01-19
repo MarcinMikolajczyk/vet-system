@@ -34,9 +34,11 @@ public class AppointmentService {
     public Appointment save(AppointmentDTO appointmentDTO, String pin){
 
         if(!customerRepository.existsByPinAndId(pin, appointmentDTO.getCustomer_id())) throw new InvalidOperationException("Wrong pin or id");
+        if(appointmentDTO.getStart_visit().getTime() >= appointmentDTO.getEnd_visit().getTime()) {
+            throw new InvalidOperationException("Bad dates. start_visit is greater than end_visit");
+        }
 
         Appointment appointment = convertAppointmentDTO(appointmentDTO);
-
         if(appointment.getDoctor().getAppointments().stream()
                 .noneMatch(doctorAppointment ->  checkFreeTerm.test(appointment, doctorAppointment))){
            return appointmentRepository.save(appointment);
