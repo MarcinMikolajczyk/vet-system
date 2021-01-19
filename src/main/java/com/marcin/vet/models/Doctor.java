@@ -25,6 +25,6 @@ public class Doctor extends BaseEntity{
     private String lastName;
 
     @OneToMany(mappedBy = "doctor")
-    @JsonView(Views.Public.class)
+    @JsonView(Views.Doctor.class)
     private Set<Appointment> appointments = new HashSet<>();
 }

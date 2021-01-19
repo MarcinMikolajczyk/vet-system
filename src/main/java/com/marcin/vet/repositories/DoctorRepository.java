@@ -8,12 +8,13 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 @Repository
 public interface DoctorRepository extends JpaRepository<Doctor, Long> {
 
     @Query(value = "select d from Doctor d left join fetch d.appointments")
-    List<Doctor> findAllWithAppointment();
+    Set<Doctor> findAllWithAppointment();
 
     @Query(value = "select d from Doctor d left join fetch d.appointments where d.id = :id")
     Optional<Doctor> findDoctorWithAppointmentsById(@Param("id") Long id);
