@@ -23,12 +23,6 @@ public class DoctorService {
     }
 
     @Transactional(readOnly = true)
-    public Doctor findDoctorWithAppointmentsById(Long id){
-        Optional<Doctor> doctor = doctorRepository.findDoctorWithAppointmentsById(id);
-        return doctor.orElse(null);
-    }
-
-    @Transactional(readOnly = true)
     public List<Appointment> getAllAppointmentsByDay(Long id, Date date){
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
         String _date = dateFormat.format(date);
@@ -40,12 +34,6 @@ public class DoctorService {
         ).collect(Collectors.toList());
 
         return appointments;
-    }
-
-    @Transactional(readOnly = true)
-    public Set<Doctor> findAllWithAppointment(){
-        Set<Doctor> doctors = doctorRepository.findAllWithAppointment();
-        return doctors;
     }
 
 }
