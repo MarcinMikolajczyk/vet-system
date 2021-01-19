@@ -21,17 +21,16 @@ pod adres:
 
 Dodanie nowej wizyty wymaga podanie w Headers `customer-pin` pinu klienta.
 
-## Usówanie wizyty
+## Usuwanie wizyty
 
 ### DELETE
 
-- `/appointments/{id}?customer_id=` - usówa wizytę o podanym id, za parametr customer_id wpisujemy id klienta
+- `/appointments/{id}?customer_id=` - usówa wizytę o podanym id, za parametr customer_id wpisujemy id klienta.
 
-Usunięcie wybranej wizyty wymaga podanie w hederze `customer-pin` pinu klienta.
+Usunięcie wybranej wizyty wymaga podanie w Headers `customer-pin` pinu klienta.
 
 
 ### GET
 
-- `/doctors/{id}?date=` - zwraca listę wizyt doktora o podanym id, za parametr date wpisujemy interesująca nas data wizyt.
+- `/doctors/{id}?date=` - zwraca listę wizyt doktora o podanym id, za parametr date wpisujemy interesująca nas data wizyt. np `/doctors/2?date=2021-01-22`
 
-np /doctors/2?date=2021-01-22
